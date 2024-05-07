@@ -4,17 +4,28 @@ const AuthLayout = () => {
  return(
   //this below is react fragment in <></>
   <>
-  {isAuthenticated? 
-    (<Navigate to= "/"/>): 
-  (
+  {isAuthenticated ? (
+    <Navigate to="/" />
+  ) : (
     <>
-    <section className="flex flex-1 justify-center items-center flex-col py-10">
-      <Outlet/>
-    </section>
-    <img src="assets/images/side.svg" alt="side-front-img" className="hidden xl:block h-screen w-1/2 object-cover bg-no-repeat"/>
+    <div className="flex justify-center items-center h-screen">
+  <div className="w-1/2 p-6 flex justify-center items-center">
+  <section>
+    <Outlet />
+  </section>
+  </div> 
+  <div className="w-1/2 h-full">
+    <img
+      src="/assets/images/side.svg"
+      alt="logo"
+      className="h-full w-full object-cover bg-no-repeat"
+    />
+  </div>
+</div>
     </>
   )}
-  </>)
+</>
+);
 }
 
 export default AuthLayout
